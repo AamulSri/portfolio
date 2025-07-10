@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aamul’s Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark-theme">
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- THEME TOGGLE -->
+  <div class="theme-toggle">
+    <select id="themeSelect">
+      <option value="dark" selected>🌙 Dark</option>
+      <option value="light">☀️ Light</option>
+    </select>
+  </div>
+
+  <!-- INTRO -->
+  <header class="intro reveal">
+    <img src="assets/profile.jpg" alt="Aamul's Profile" class="profile-pic"/>
+    <h1 class="intro-title glowing-title">Building code that matters.</h1>
+    <div id="typewriter" class="typewriter"></div>
+    <a class="resume-btn" href="assets/resume.pdf" download>Resume</a>
+  </header>
+
+  <!-- ABOUT -->
+  <h2 class="glow-heading section-header">Who I Am</h2>
+  <section class="section reveal">
+    <div class="section-box glow-box">
+      <p>I’m Aamul, a passionate backend developer who crafts clean Java and Spring Boot applications. I blend creativity and logic to bring meaningful systems to life. Every bug squashed is a battle won!</p>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <h2 class="glow-heading section-header">Experience</h2>
+  <section class="section reveal">
+    <div class="section-box glow-box">
+      <div class="experience-stack">
+        <div class="exp-entry">
+          <h3>Infosys</h3>
+          <p>Associate Consultant (Present)</p>
+          <p>Working on a large-scale finance project, 
+            involving backend development using modern Java and Spring Boot frameworks. My role focuses on building scalable APIs, handling policy data workflows, and integrating services within a secure enterprise environment.</p>
+        </div>
+        <div class="exp-entry">
+          <h3>Tata Consultancy Services</h3>
+          <p>System Engineer (3 years)</p>
+          <p>Contributed to diverse projects in retail and healthcare sectors.
+             Designed and maintained Java-based backend systems, collaborated with cross-functional teams, and optimized performance for customer-facing applications with a strong emphasis on reliability and security..</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <h2 class="glow-heading section-header">Projects with a Spark</h2>
+  <section class="section reveal">
+    <div class="projects-pyramid">
+      <div class="project-card glow-box">
+        <h3>Snake Game</h3>
+        <p>A classic 2-level snake game implemented in Java with custom game mechanics.</p>
+        <a href="https://github.com/AamulSri/2_Level_Snake_Game" target="_blank">GitHub</a> |
+        <a href="https://www.linkedin.com/posts/aamulsri_java-snakegame-nextlevelgaming-activity-7164968139389173760-SrcY" target="_blank">Video</a>
+      </div>
+      <div class="project-card glow-box">
+        <h3>Bank Management System</h3>
+        <p>A backend banking system built with core Java, includes account creation and transaction logs.</p>
+        <a href="https://github.com/AamulSri/Bank-Management-System" target="_blank">GitHub</a> |
+        <a href="https://www.linkedin.com/posts/aamulsri_bankingtechnology-fintech-innovation-activity-7165645196221775874-m_fj" target="_blank">Video</a>
+      </div>
+      <div class="project-card glow-box">
+        <h3>SpringBoot REST API</h3>
+        <p>Build a backend system using SpringBoot where users can store and manipulate data via Postman.</p>
+        <a href="https://github.com/AamulSri/BackendSpringBootRestAPI" target="_blank">GitHub</a> |
+        <a href="https://bit.ly/3X9Cu7x" target="_blank">Video</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONNECT -->
+  <h2 class="glow-heading section-header">Let’s Connect</h2>
+  <section class="section reveal">
+    <div class="social-cards">
+      <a href="https://github.com/AamulSri" class="social-card glow-box" target="_blank">
+        <img src="assets/github.svg" alt="GitHub" /> 💻 See my progress here
+      </a>
+      <a href="https://www.linkedin.com/in/aamulsri" class="social-card glow-box" target="_blank">
+        <img src="assets/linkedin.svg" alt="LinkedIn" /> 🤝 Want to know me?
+      </a>
+      <a href="https://www.youtube.com/@CtRl_CraFtinG" class="social-card glow-box" target="_blank">
+        <img src="assets/youtube.svg" alt="YouTube" /> 🎬 Welcome to CtrlCrafting
+      </a>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
