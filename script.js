@@ -17,8 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
-//  Scroll Reveal Animation (Restored)
+// Scroll Reveal Animation
 const reveals = document.querySelectorAll(".reveal");
 window.addEventListener("scroll", () => {
   reveals.forEach((reveal) => {
@@ -29,7 +28,6 @@ window.addEventListener("scroll", () => {
     }
   });
 });
-// Run it once to reveal any in viewport on load
 setTimeout(() => {
   reveals.forEach((reveal) => {
     const top = reveal.getBoundingClientRect().top;
@@ -71,6 +69,7 @@ function typeLoop() {
   setTimeout(typeLoop, speed);
 }
 typeLoop();
+typewriter.style.minHeight = "1.5em"; // Fix height shift
 
 // Canvas Setup
 const canvas = document.getElementById("bgCanvas");
@@ -83,7 +82,7 @@ function resizeCanvas() {
 resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
 
-// Stars Animation (dark mode)
+// Stars Animation (Dark Mode)
 let stars = [];
 function initStars() {
   stars = Array.from({ length: 100 }, () => ({
@@ -119,7 +118,7 @@ function drawStars() {
   });
 }
 
-// Paper Plane Animation (light mode)
+// Paper Plane Animation (Light Mode)
 let planes = [];
 function initPlanes() {
   planes = Array.from({ length: 30 }, () => ({
@@ -155,7 +154,7 @@ function drawPlanes() {
 }
 
 // Animation Loop Controller
-let animationMode = "dark"; // or "light"
+let animationMode = "dark"; // will be set properly in DOMContentLoaded
 
 function animateCanvas() {
   if (animationMode === "dark") {
@@ -166,7 +165,7 @@ function animateCanvas() {
   requestAnimationFrame(animateCanvas);
 }
 
-// Theme-based Background Switch
+// Theme Switch Background Logic
 function toggleBackgroundEffect(theme) {
   if (theme === "dark") {
     animationMode = "dark";
@@ -177,14 +176,10 @@ function toggleBackgroundEffect(theme) {
   }
 }
 
+// Start background animation (only this, do NOT force a theme)
 animateCanvas();
 
-// Background animation logic unchanged
-// It correctly switches between stars and planes
-// Fix typewriter container height to avoid scroll jumps
-typewriter.style.minHeight = "1.5em"
-
-//go to the section from menu bar
+// Scroll-to-section logic
 function scrollToSection(id) {
   const sectionMap = {
     about: document.querySelector('.section:nth-of-type(1)'),
