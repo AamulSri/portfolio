@@ -166,6 +166,12 @@ function toggleBackgroundEffect(theme) {
 toggleBackgroundEffect("dark"); // default
 animateCanvas();
 
+// Set theme on page load
+const savedTheme = localStorage.getItem("preferredTheme") || "dark";
+document.body.className = savedTheme + "-theme";
+toggleBackgroundEffect(savedTheme);
+document.getElementById("themeSelect").value = savedTheme;
+
 // Ensure animations load properly on theme switch
 document.getElementById("themeSelect").addEventListener("change", function () {
   const selectedTheme = this.value;
@@ -178,3 +184,40 @@ document.getElementById("themeSelect").addEventListener("change", function () {
 // It correctly switches between stars and planes
 // Fix typewriter container height to avoid scroll jumps
 typewriter.style.minHeight = "1.5em"
+
+//go to the section from menu bar
+function scrollToSection(id) {
+  const sectionMap = {
+    about: document.querySelector('.section:nth-of-type(1)'),
+    experience: document.querySelector('.section:nth-of-type(2)'),
+    skills: document.querySelector('.section:nth-of-type(3)'),
+    projects: document.querySelector('.section:nth-of-type(4)'),
+    connect: document.querySelector('.section:nth-of-type(5)')
+  };
+  if (sectionMap[id]) {
+    sectionMap[id].scrollIntoView({ behavior: "smooth" });
+  }
+}
+
+// Skills Carousel Logic
+const carousel = document.querySelector('.skills-carousel');
+const slides = document.querySelectorAll('.skill-slide');
+let currentIndex = 0;
+
+document.querySelector('.left-arrow').addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateCarousel();
+  }
+});
+document.querySelector('.right-arrow').addEventListener('click', () => {
+  if (currentIndex < slides.length - 1) {
+    currentIndex++;
+    updateCarousel();
+  }
+});
+
+function updateCarousel() {
+  const slideWidth = slides[0].offsetWidth;
+  carousel.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+}

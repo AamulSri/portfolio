@@ -17,12 +17,12 @@ body {
 }
 
 body.dark-theme {
-  background: radial-gradient(circle at top left, #020d24 0%, #0a133a 100%);
+  background: radial-gradient(circle at top left, #0a133a 0%, #090625 100%);
   color: #fff;
 }
 body.light-theme {
   background: #f5fcff;
-  color: #111;
+  color: #111111;
 }
 
 /* Theme Toggle */
@@ -124,7 +124,7 @@ body.light-theme .profile-pic {
   gap: 20px;
 }
 .exp-entry {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   padding: 15px;
   border-radius: 10px;
   transition: all 0.3s;
@@ -182,7 +182,7 @@ a:hover {
   transition: all 0.3s;
 }
 .social-card img {
-  width: 40px;
+  width: 80px;
 }
 .social-card:hover {
   background: rgba(255, 255, 255, 0.1);
@@ -277,4 +277,114 @@ a:hover {
   #bgCanvas {
     transition: none !important;
   }
+}
+/* Navigation Menu */
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 15px 30px;
+  width: 30%;
+  top: 0;
+  z-index: 999;
+  backdrop-filter: blur(10px);
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: #fdfdfd;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.nav-btn:hover {
+  transform: scale(1.1);
+  text-shadow: 0 0 8px #6dd5ed;
+}
+
+body.light-theme .nav-btn {
+  color: #0066cc;
+}
+body.light-theme .nav-btn:hover {
+  text-shadow: 0 0 10px #66bfff;
+}
+
+
+/* Skills Section */
+.skills-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 600px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.skills-carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.skill-slide {
+  min-width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.skill-slide img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  padding: 5px;
+  transition: transform 0.3s ease;
+}
+
+/* Fix for oversized SVGs */
+.skill-slide img[alt="MongoDB"],
+.skill-slide img[alt="Python"] {
+  transform: scale(0.75);
+}
+
+/* Glow on hover */
+.skill-slide img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 8px #6dd5ed);
+}
+
+.arrow-btn {
+  font-size: 28px;
+  background: transparent;
+  border: none;
+  color: #6dd5ed;
+  cursor: pointer;
+  padding: 10px;
+  transition: transform 0.2s ease;
+  z-index: 2;
+}
+.arrow-btn:hover {
+  transform: scale(1.2);
+}
+.left-arrow {
+  position: absolute;
+  left: 0;
+}
+.right-arrow {
+  position: absolute;
+  right: 0;
+}
+/* font for about section */
+.about-text {
+  font-family: 'Domine', serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: center;
 }

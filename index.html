@@ -4,10 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Aamul’s Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Domine&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="dark-theme">
   <canvas id="bgCanvas"></canvas>
+
+<!--Menu-->
+<nav class="navbar">
+  <button class="nav-btn" onclick="scrollToSection('about')">About</button>
+  <button class="nav-btn" onclick="scrollToSection('experience')">Experience</button>
+  <button class="nav-btn" onclick="scrollToSection('skills')">Skills</button>
+  <button class="nav-btn" onclick="scrollToSection('projects')">Projects</button>
+  <button class="nav-btn" onclick="scrollToSection('connect')">Connect</button>
+  
+</nav>
 
   <!-- THEME TOGGLE -->
   <div class="theme-toggle">
@@ -26,15 +37,18 @@
   </header>
 
   <!-- ABOUT -->
-  <h2 class="glow-heading section-header">Who I Am</h2>
+  <h2 class="glow-heading section-header">Who Am I ?</h2>
   <section class="section reveal">
-    <div class="section-box glow-box">
-      <p>I’m Aamul, a passionate backend developer who crafts clean Java and Spring Boot applications. I blend creativity and logic to bring meaningful systems to life. Every bug squashed is a battle won!</p>
+    <div class="section-box glow-box about-text">
+      <p>Hey, I’m Aamul — part human, part compiler.<br> I throw exceptions only when absolutely necessary Crafting clean Java code and untangling backend logic is my version of fun.<br>
+          My REST APIs never rest, and my logs are more readable than novels.<br>
+          When I'm not coding, I’m probably refactoring my to-do list.<br>
+        Let’s just say I’ve made peace with semicolons and curly braces.</p>
     </div>
   </section>
 
   <!-- EXPERIENCE -->
-  <h2 class="glow-heading section-header">Experience</h2>
+  <h2 class="glow-heading section-header">Professional Journey</h2>
   <section class="section reveal">
     <div class="section-box glow-box">
       <div class="experience-stack">
@@ -53,6 +67,35 @@
       </div>
     </div>
   </section>
+
+<!-- SKILLS -->
+<h2 class="glow-heading section-header">Code Potions I Brew</h2>
+<section class="section reveal">
+  <div class="skills-container glow-box">
+    <button class="arrow-btn left-arrow">&#10094;</button>
+    <div class="skills-carousel">
+      <div class="skill-slide">
+        <img src="assets/skills/java.svg" alt="Java" />
+        <img src="assets/skills/springboot.svg" alt="Spring Boot" />
+        <img src="assets/skills/mysql.svg" alt="MySQL" />
+        <img src="assets/skills/mongodb.svg" alt="MongoDB" />
+      </div>
+      <div class="skill-slide">
+        <img src="assets/skills/python.svg" alt="Python" />
+        <img src="assets/skills/kafka.svg" alt="Kafka" />
+        <img src="assets/skills/git.svg" alt="Git" />
+        <img src="assets/skills/gcp.svg" alt="GCP" />
+      </div>
+      <div class="skill-slide">
+        <img src="assets/skills/html.svg" alt="HTML" />
+        <img src="assets/skills/css.svg" alt="CSS" />
+        <img src="assets/skills/javascript.svg" alt="JavaScript" />
+        <img src="assets/skills/api.svg" alt="api" />
+      </div>
+    </div>
+    <button class="arrow-btn right-arrow">&#10095;</button>
+  </div>
+</section>
 
   <!-- PROJECTS -->
   <h2 class="glow-heading section-header">Projects with a Spark</h2>
