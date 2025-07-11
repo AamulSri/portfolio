@@ -4,8 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const themeSelect = document.getElementById("themeSelect");
   const savedTheme = localStorage.getItem("preferredTheme") || "light";
 
-  // Apply the saved theme
+  // Only apply if not already set (avoid double reset)
+if (!document.documentElement.classList.contains(savedTheme + "-theme")) {
   document.documentElement.className = savedTheme + "-theme";
+}
   themeSelect.value = savedTheme;
   toggleBackgroundEffect(savedTheme);
 
