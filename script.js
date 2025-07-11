@@ -1,9 +1,22 @@
-// Theme Switcher
-document.getElementById("themeSelect").addEventListener("change", function () {
-  const selectedTheme = this.value;
-  document.body.className = selectedTheme + "-theme";
-  toggleBackgroundEffect(selectedTheme);
+document.addEventListener("DOMContentLoaded", () => {
+  const themeSelect = document.getElementById("themeSelect");
+  const savedTheme = localStorage.getItem("preferredTheme") || "dark";
+
+  // Apply the saved theme
+  document.body.className = savedTheme + "-theme";
+  themeSelect.value = savedTheme;
+  toggleBackgroundEffect(savedTheme);
+
+  // When user switches theme
+  themeSelect.addEventListener("change", function () {
+    const selectedTheme = this.value;
+    document.body.className = selectedTheme + "-theme";
+    localStorage.setItem("preferredTheme", selectedTheme);
+    toggleBackgroundEffect(selectedTheme);
+    resizeCanvas();
+  });
 });
+
 
 //  Scroll Reveal Animation (Restored)
 const reveals = document.querySelectorAll(".reveal");
@@ -163,34 +176,8 @@ function toggleBackgroundEffect(theme) {
     initPlanes();
   }
 }
-toggleBackgroundEffect("dark"); // default
+
 animateCanvas();
-
-//theme switch
-document.addEventListener("DOMContentLoaded", () => {
-  const themeSelect = document.getElementById("themeSelect");
-  const savedTheme = localStorage.getItem("preferredTheme") || "dark";
-
-  document.body.className = savedTheme + "-theme";
-  themeSelect.value = savedTheme;
-  toggleBackgroundEffect(savedTheme);
-
-  themeSelect.addEventListener("change", function () {
-    const selectedTheme = this.value;
-    document.body.className = selectedTheme + "-theme";
-    localStorage.setItem("preferredTheme", selectedTheme);
-    toggleBackgroundEffect(selectedTheme);
-    resizeCanvas();
-  });
-});
-
-// Ensure animations load properly on theme switch
-document.getElementById("themeSelect").addEventListener("change", function () {
-  const selectedTheme = this.value;
-  document.body.className = selectedTheme + "-theme";
-  toggleBackgroundEffect(selectedTheme);
-  resizeCanvas(); // Re-adjust canvas on theme switch
-});
 
 // Background animation logic unchanged
 // It correctly switches between stars and planes
