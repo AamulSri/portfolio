@@ -1,3 +1,14 @@
+// Force dark theme for mobile on first visit
+(function () {
+  const isMobile = new RegExp("Mobi|Android|iPhone|iPad", "i").test(navigator.userAgent);
+  const savedTheme = localStorage.getItem("preferredTheme");
+
+  if (isMobile && !savedTheme) {
+    localStorage.setItem("preferredTheme", "dark");
+    document.body.className = "dark-theme";
+  }
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
   const themeSelect = document.getElementById("themeSelect");
   const savedTheme = localStorage.getItem("preferredTheme") || "dark";
