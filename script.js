@@ -1,39 +1,30 @@
-// // Force dark theme for mobile on first visit
-// (function () {
-//   const isMobile = new RegExp("Mobi|Android|iPhone|iPad", "i").test(navigator.userAgent);
-//   const savedTheme = localStorage.getItem("preferredTheme");
 
-//   if (isMobile && !savedTheme) {
-//     localStorage.setItem("preferredTheme", "dark");
-//     document.body.className = "dark-theme";
-//   }
-// })();
-// Force light theme on mobile devices
-(function () {
- const isMobile = new RegExp("Mobi|Android|iPhone|iPad", "i").test(navigator.userAgent);
-  if (isMobile) {
-    localStorage.setItem("preferredTheme", "light");
-    document.body.className = "light-theme";
-  }
-})();
 
 document.addEventListener("DOMContentLoaded", () => {
   const themeSelect = document.getElementById("themeSelect");
   const savedTheme = localStorage.getItem("preferredTheme") || "light";
 
   // Apply the saved theme
-  document.body.className = savedTheme + "-theme";
+  document.documentElement.className = savedTheme + "-theme";
   themeSelect.value = savedTheme;
   toggleBackgroundEffect(savedTheme);
 
-  // When user switches theme
-  themeSelect.addEventListener("change", function () {
-    const selectedTheme = this.value;
-    document.body.className = selectedTheme + "-theme";
-    localStorage.setItem("preferredTheme", selectedTheme);
-    toggleBackgroundEffect(selectedTheme);
-    resizeCanvas();
-  });
+themeSelect.addEventListener("change", function () {
+  const selectedTheme = this.value;
+  const currentTheme = localStorage.getItem("preferredTheme") || "light";
+
+  if (selectedTheme === currentTheme) return;
+
+  localStorage.setItem("preferredTheme", selectedTheme);
+
+  // ✅ Safely switch only the theme class
+  document.documentElement.classList.remove("dark-theme", "light-theme");
+  document.documentElement.classList.add(selectedTheme + "-theme");
+
+  toggleBackgroundEffect(selectedTheme);
+  resizeCanvas();
+});
+
 });
 
 // Scroll Reveal Animation

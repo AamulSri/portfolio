@@ -16,11 +16,11 @@ body {
   height: 100vh;
 }
 
-body.dark-theme {
+html.dark-theme {
   background: radial-gradient(circle at top left, #0a133a 0%, #090625 100%);
   color: #fff;
 }
-body.light-theme {
+html.light-theme {
   background: #f5fcff;
   color: #111111;
 }
