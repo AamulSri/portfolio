@@ -265,6 +265,17 @@ a:hover {
     font-size: 1.5rem;
   }
 
+  .navbar {
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+  padding: 10px;
+}
+
+.nav-btn {
+  font-size: 0.9rem;
+}
 
   * {
     transition-duration: 0.1s !important;
@@ -277,6 +288,7 @@ a:hover {
   #bgCanvas {
     transition: none !important;
   }
+  
 }
 /* Navigation Menu */
 .navbar {
