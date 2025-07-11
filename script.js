@@ -8,32 +8,29 @@
 //     document.body.className = "dark-theme";
 //   }
 // })();
-// Force light theme on mobile devices
-(function () {
- const isMobile = new RegExp("Mobi|Android|iPhone|iPad", "i").test(navigator.userAgent);
-  if (isMobile) {
-    localStorage.setItem("preferredTheme", "light");
-    document.body.className = "light-theme";
-  }
-})();
 
+
+
+// In script.js, modify the DOMContentLoaded event listener:
 document.addEventListener("DOMContentLoaded", () => {
+  // Mobile detection first
+  const isMobile = new RegExp("Mobi|Android|iPhone|iPad", "i").test(navigator.userAgent);
+  const savedTheme = localStorage.getItem("preferredTheme");
+  
+  // Force dark theme only for mobile on first visit
+  if (isMobile && !savedTheme) {
+    localStorage.setItem("preferredTheme", "dark");
+  }
+
+  // Then proceed with normal theme initialization
   const themeSelect = document.getElementById("themeSelect");
-  const savedTheme = localStorage.getItem("preferredTheme") || "light";
-
-  // Apply the saved theme
-  document.body.className = savedTheme + "-theme";
-  themeSelect.value = savedTheme;
-  toggleBackgroundEffect(savedTheme);
-
-  // When user switches theme
-  themeSelect.addEventListener("change", function () {
-    const selectedTheme = this.value;
-    document.body.className = selectedTheme + "-theme";
-    localStorage.setItem("preferredTheme", selectedTheme);
-    toggleBackgroundEffect(selectedTheme);
-    resizeCanvas();
-  });
+  const finalTheme = localStorage.getItem("preferredTheme") || "dark";
+  
+  document.body.className = finalTheme + "-theme";
+  themeSelect.value = finalTheme;
+  toggleBackgroundEffect(finalTheme);
+  
+  // Rest of your existing code...
 });
 
 // Scroll Reveal Animation
