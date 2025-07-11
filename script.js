@@ -1,11 +1,11 @@
-// 🌙 Theme Switcher
+// Theme Switcher
 document.getElementById("themeSelect").addEventListener("change", function () {
   const selectedTheme = this.value;
   document.body.className = selectedTheme + "-theme";
   toggleBackgroundEffect(selectedTheme);
 });
 
-// ✅ Scroll Reveal Animation (Restored)
+//  Scroll Reveal Animation (Restored)
 const reveals = document.querySelectorAll(".reveal");
 window.addEventListener("scroll", () => {
   reveals.forEach((reveal) => {
@@ -27,7 +27,7 @@ setTimeout(() => {
   });
 }, 100);
 
-// ⌨️ Typewriter Animation
+// Typewriter Animation
 const words = [
   "Debugger", "Architect", "SpringBooter", "TechSeeker",
   "JavaWiz", "CodeWhisperer", "LogicTamer", "BugSquasher"
@@ -59,7 +59,7 @@ function typeLoop() {
 }
 typeLoop();
 
-// ✨ Canvas Setup
+// Canvas Setup
 const canvas = document.getElementById("bgCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -70,7 +70,7 @@ function resizeCanvas() {
 resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
 
-// ⭐ Stars Animation (dark mode)
+// Stars Animation (dark mode)
 let stars = [];
 function initStars() {
   stars = Array.from({ length: 100 }, () => ({
@@ -106,7 +106,7 @@ function drawStars() {
   });
 }
 
-// ✈️ Paper Plane Animation (light mode)
+// Paper Plane Animation (light mode)
 let planes = [];
 function initPlanes() {
   planes = Array.from({ length: 30 }, () => ({
@@ -141,7 +141,7 @@ function drawPlanes() {
   });
 }
 
-// 🔁 Animation Loop Controller
+// Animation Loop Controller
 let animationMode = "dark"; // or "light"
 
 function animateCanvas() {
@@ -153,7 +153,7 @@ function animateCanvas() {
   requestAnimationFrame(animateCanvas);
 }
 
-// 🔄 Theme-based Background Switch
+// Theme-based Background Switch
 function toggleBackgroundEffect(theme) {
   if (theme === "dark") {
     animationMode = "dark";
@@ -165,3 +165,16 @@ function toggleBackgroundEffect(theme) {
 }
 toggleBackgroundEffect("dark"); // default
 animateCanvas();
+
+// Ensure animations load properly on theme switch
+document.getElementById("themeSelect").addEventListener("change", function () {
+  const selectedTheme = this.value;
+  document.body.className = selectedTheme + "-theme";
+  toggleBackgroundEffect(selectedTheme);
+  resizeCanvas(); // Re-adjust canvas on theme switch
+});
+
+// Background animation logic unchanged
+// It correctly switches between stars and planes
+// Fix typewriter container height to avoid scroll jumps
+typewriter.style.minHeight = "1.5em"
