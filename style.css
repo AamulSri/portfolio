@@ -150,6 +150,7 @@ body.light-theme .profile-pic {
   transition: all 0.3s;
 }
 .project-card:hover {
+  background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 12px #6dd5ed;
 }
 a {
@@ -184,6 +185,7 @@ a:hover {
   width: 40px;
 }
 .social-card:hover {
+  background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 12px #6dd5ed;
   transform: scale(1.05);
 }
@@ -276,4 +278,3 @@ a:hover {
     transition: none !important;
   }
 }
-
