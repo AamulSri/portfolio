@@ -166,11 +166,23 @@ function toggleBackgroundEffect(theme) {
 toggleBackgroundEffect("dark"); // default
 animateCanvas();
 
-// Set theme on page load
-const savedTheme = localStorage.getItem("preferredTheme") || "dark";
-document.body.className = savedTheme + "-theme";
-toggleBackgroundEffect(savedTheme);
-document.getElementById("themeSelect").value = savedTheme;
+//theme switch
+document.addEventListener("DOMContentLoaded", () => {
+  const themeSelect = document.getElementById("themeSelect");
+  const savedTheme = localStorage.getItem("preferredTheme") || "dark";
+
+  document.body.className = savedTheme + "-theme";
+  themeSelect.value = savedTheme;
+  toggleBackgroundEffect(savedTheme);
+
+  themeSelect.addEventListener("change", function () {
+    const selectedTheme = this.value;
+    document.body.className = selectedTheme + "-theme";
+    localStorage.setItem("preferredTheme", selectedTheme);
+    toggleBackgroundEffect(selectedTheme);
+    resizeCanvas();
+  });
+});
 
 // Ensure animations load properly on theme switch
 document.getElementById("themeSelect").addEventListener("change", function () {

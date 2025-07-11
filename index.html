@@ -9,6 +9,10 @@
   
 </head>
 <body class="dark-theme">
+  <script>
+    const savedTheme = localStorage.getItem("preferredTheme") || "dark";
+    document.body.className = savedTheme + "-theme";
+  </script>
   <canvas id="bgCanvas"></canvas>
 
 <!--Menu-->

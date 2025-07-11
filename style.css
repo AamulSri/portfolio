@@ -56,7 +56,7 @@ body.light-theme .theme-toggle select {
 /* Intro Section */
 .intro {
   text-align: center;
-  padding: 40px 20px 20px;
+  padding: 80px 20px 20px;
   margin-top: 0;
 }
 .profile-pic {
@@ -252,7 +252,8 @@ a:hover {
   }
 
   .theme-toggle {
-    top: 8px;
+    top: auto;
+    bottom: 10px; /* Push it to bottom */
     right: 10px;
   }
 
@@ -265,6 +266,26 @@ a:hover {
     font-size: 1.5rem;
   }
   
+ .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly; /* spread buttons evenly */
+    flex-wrap: nowrap;             /* force same line */
+    padding: 8px 10px;
+    width: 100vw;
+    overflow-x: auto;              /* if space is tight, allow horizontal scroll */
+    scrollbar-width: none;         /* hide scrollbar on Firefox */
+  }
+
+  .navbar::-webkit-scrollbar {
+    display: none;                 /* hide scrollbar on Chrome */
+  }
+
+  .nav-btn {
+    font-size: 0.85rem;
+    padding: 4px 8px;
+    white-space: nowrap;
+  }
 
   * {
     transition-duration: 0.1s !important;
@@ -282,10 +303,12 @@ a:hover {
 /* Navigation Menu */
 .navbar {
   display: flex;
-  justify-content: flex-end;
-  gap: 20px;
-  padding: 15px 30px;
-  width: 30%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
+  gap: 5px;
+  padding: 15px;
+  width: 100%;
   top: 0;
   z-index: 999;
   backdrop-filter: blur(10px);
