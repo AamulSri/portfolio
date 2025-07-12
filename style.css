@@ -1,7 +1,10 @@
+:root {
+  --navbar-height: 60px; /* Default for desktop */
+}
 /* Reset & Base */
 body {
   margin: 0;
-  padding: 0;
+   padding-top: var(--navbar-height); /* Uses dynamic variable */
   overflow-x: hidden;
   position: relative;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -264,7 +267,9 @@ a:hover {
   .section-header {
     font-size: 1.5rem;
   }
-  
+  :root {
+    --navbar-height: 80px; /*  navbar height on mobile */
+  }
  .navbar {
     display: flex;
     flex-direction: row;
@@ -279,7 +284,7 @@ a:hover {
   .navbar::-webkit-scrollbar {
     display: none;                 /* hide scrollbar on Chrome */
   }
-
+  
   .nav-btn {
     font-size: 0.85rem;
     padding: 4px 8px;
@@ -305,13 +310,16 @@ a:hover {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: left;
+  position: fixed;
   gap: 5px;
   padding: 15px;
   width: 100%;
   top: 0;
   z-index: 999;
-  backdrop-filter: blur(10px);
+  background-color: rgba(44, 33, 95, 0.191);
+  backdrop-filter:blur(10px);
 }
+
 
 .nav-btn {
   background: none;
@@ -328,9 +336,11 @@ a:hover {
   transform: scale(1.1);
   text-shadow: 0 0 8px #6dd5ed;
 }
-
+html.light-theme .navbar {
+  background-color: rgba(220, 236, 248, 0.8); /* Light mode */
+}
 html.light-theme .nav-btn {
-  color: #0066cc;
+  color: #0b4178;
 }
 html.light-theme .nav-btn:hover {
   text-shadow: 0 0 10px #66bfff;
